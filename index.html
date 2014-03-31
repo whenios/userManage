@@ -29,6 +29,7 @@
 <body >	
 	<div id="maincontent" ng-controller="mainController">
 	<div class="row-fluid">
+		Search:<input type="text" ng-model="query">
 		<div class="span6">
 	<table class="table" >
 		<tr>
@@ -38,7 +39,7 @@
 			<td>空间</td>
 			<td>属性</td>
 		</tr>
-		<tr ng-repeat="one in users">
+		<tr ng-repeat="one in users | filter:query">
 			<td>{{$index+1}} </td>
 			<td>{{one.name}}</td>
 			<td>{{one.belongOrg}}</td>
@@ -51,17 +52,17 @@
 	<form >
 	<table class="table">
 		<tr >
-			<td>姓名</td><td><input type="test" ng-model="singleUser.name"/></td>
+			<td>姓名</td><td><input type="text" ng-model="singleUser.name"/></td>
 		</tr>
 		<tr >
-			<td>密码</td><td><input type="test" ng-model="singleUser.pwd"/></td>
+			<td>密码</td><td><input type="password" ng-model="singleUser.pwd"/></td>
 		</tr>
-			<td>组织</td><td><input type="test" ng-model="singleUser.belongOrg"/></td>
+			<td>组织</td><td><input type="text" ng-model="singleUser.belongOrg"/></td>
 		<tr >	
-			<td>空间</td><td><input type="test" ng-model="singleUser.space"/></td>
+			<td>空间</td><td><input type="text" ng-model="singleUser.space"/></td>
 		</tr>
 		<tr >
-			<td>权限</td><td><input type="test" ng-model="singleUser.authority"/></td>
+			<td>权限</td><td><input type="text" ng-model="singleUser.authority"/></td>
 		</tr>				
 	</table>
 	<input type="submit" ng-click="update(singleUser)">
