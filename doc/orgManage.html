@@ -1,0 +1,37 @@
+
+<div ng-controller="createOrgController">
+    <!--<script type="text/ng-template" id="orgManage.html">-->
+        <div >
+            <button type="button" ng-click="hideCreate=false">create Org</button>
+            <table >
+                <tbody>
+                <tr>
+                    <th>编号</th>
+                    <th>组织列表</th>
+                    <th>域名</th>
+                    <th>配额</th>
+                </tr>
+                <tr ng-repeat="org in organizations" ng-click="showChange($index)">
+                    <td>{{$index+1}}</td>
+                    <td>{{org.name}}</td>
+                    <td>{{org.domain}}</td>
+                    <td>{{org.memery}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-hide="hideCreate">
+            <form>
+                <p>创建组织</p>
+                <p>组织名称;<input type="text" name="name" ng-model="user.name" /></p>
+                <p>域名:<input type="text" name="domain" ng-model="user.domain"  required/></p>
+                <input name="submit" type="submit"  ng-click="createOrg(user)" />
+            </form>
+        </div>
+        <div ng-hide="hideChange">
+            <h1>{{organizations[tempIndex].name}}</h1>
+            <p>修改配额<input type="text" name="memery" ng-model="change.memery" /></p>
+            <input name="submit" type="submit" ng-click="changeMem(change)">
+        </div>
+   <!-- </script>-->
+</div>

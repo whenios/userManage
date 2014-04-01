@@ -1,0 +1,52 @@
+	<div class="span12" ng-controller="userController">
+				Search:<input type="text" ng-model="query">
+				<button ng-click="hideCreat=false">Create User</button>
+			
+			
+			<div class="span6">
+				<table class="table" >
+					<tr>
+						<td>编号</td>
+						<td>姓名</td>
+						<td>属性</td>
+					</tr>
+					<tr ng-repeat="one in users | filter:query" ng-click=showDetail($index)>
+						<td>{{$index+1}} </td>
+						<td>{{one.name}}</td>
+						<td>{{one.authority}}</td>		
+					</tr>
+				</table>
+			</div>
+			
+			<div class="span4 sidebar">
+				<form>
+					<h3>用户详情</h3>
+					<button ng-click="removeUser(indexUser)">删除</button>
+					<p><span>姓名</span><span>{{users[indexUser].name}}</span></p>
+					<p><span>组织</span><span>{{users[indexUser].belongOrg}}</span></p>
+					<p><span>空间</span><span>{{users[indexUser].space}}</span></p>
+					<p><span>权限</span><span>{{users[indexUser].authority}}</span></p>
+				</form>
+			</div>
+			<div class="span4 sidebar" ng-hide="hideCreat">
+				
+				<form >
+					<table class="table ">
+						<tr >
+							<td>姓名</td><td><input type="text" ng-model="singleUser.name"/></td>
+						</tr>
+						<tr >
+							<td>密码</td><td><input type="password" ng-model="singleUser.pwd"/></td>
+						</tr>
+						<td>组织</td><td><input type="text" ng-model="singleUser.belongOrg"/></td>
+						<tr >	
+							<td>空间</td><td><input type="text" ng-model="singleUser.space"/></td>
+						</tr>
+						<tr >
+							<td>权限</td><td><input type="text" ng-model="singleUser.authority"/></td>
+						</tr>				
+					</table>
+					<input type="submit" ng-click="update(singleUser)">
+				</form>		
+			</div>
+			</div>

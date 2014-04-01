@@ -1,0 +1,23 @@
+
+	<div ng-controller="domainController">
+		<div   class="DomainList" >
+        <table>
+        	<tr>
+        		<th>域名列表</th>
+        		<th>name</th>
+        		<th>删除</th>
+         	</tr>
+            <tr ng-repeat="one in domains">
+                <td>{{$index+1}}</td>
+                <td>{{one.name}}</td>
+                <td><button ng-click="delete(singleDomain)">删除</button></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <input type="text" ng-model="singleDomain.name" />
+        <input type="submit" ng-click="add(singleDomain)">
+	</div>
+</div>
+
+

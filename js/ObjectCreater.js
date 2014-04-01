@@ -10,6 +10,7 @@ function User(singleUser){
 function Organization(singleOrg){
 	this.name=singleOrg.name;
 	this.domain=singleOrg.domain;
+	this.memery=singleOrg.memery;
 
 }
 

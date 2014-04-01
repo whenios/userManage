@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html ng-app >
+<html ng-app="MyApp" >
 <head>
 	
 	<meta charset="utf-8">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="bootstrap.css">
-	<script src="angular.js"></script>
-	<script src="ObjectCreater.js"></script>
-	<script src="jquery.js"></script>
-	<script src="mainController.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-route.js"></script>
+	<script src="lib/jquery/jquery.js"></script>
+	<script src="js/ObjectCreater.js"></script>
+	<script src="js/mainController.js"></script>
 	<style type="text/css">
 	form{
 		margin:50px 10px; 
@@ -23,53 +24,26 @@
 	.green{
 		background-color: green;
 	}
+	.sidebar{
+		background-color: #666;
+	}
 
 	</style>
 </head>
 <body >	
 	<div id="maincontent" ng-controller="mainController">
-	<div class="row-fluid">
-		Search:<input type="text" ng-model="query">
-		<div class="span6">
-	<table class="table" >
-		<tr>
-			<td>编号</td>
-			<td>姓名</td>
-			<td>组织</td>
-			<td>空间</td>
-			<td>属性</td>
-		</tr>
-		<tr ng-repeat="one in users | filter:query">
-			<td>{{$index+1}} </td>
-			<td>{{one.name}}</td>
-			<td>{{one.belongOrg}}</td>
-			<td>{{one.space}}</td>
-			<td>{{one.authority}}</td>		
-		</tr>
-	</table>
-	</div>
-		<div class="span4">
-	<form >
-	<table class="table">
-		<tr >
-			<td>姓名</td><td><input type="text" ng-model="singleUser.name"/></td>
-		</tr>
-		<tr >
-			<td>密码</td><td><input type="password" ng-model="singleUser.pwd"/></td>
-		</tr>
-			<td>组织</td><td><input type="text" ng-model="singleUser.belongOrg"/></td>
-		<tr >	
-			<td>空间</td><td><input type="text" ng-model="singleUser.space"/></td>
-		</tr>
-		<tr >
-			<td>权限</td><td><input type="text" ng-model="singleUser.authority"/></td>
-		</tr>				
-	</table>
-	<input type="submit" ng-click="update(singleUser)">
-	</form>
-	</div>
-	
-</div>
+		<div  class="row-fluid">
+			
+				<ul>
+					<li><a href="#/userManage">userManage</a></li>
+					<li><a href="#/dominManage">dominManage</a></li>
+					<li><a href="#/orgManage">organizationManage</a></li>
+					<li><a href=""></a></li>
+				</ul>
+			<div ng-view>
+				<h1>内容都在这</h1>
+			</div>	
+		</div>		
 	</div>
 </body>
 </html>
